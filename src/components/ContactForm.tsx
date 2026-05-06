@@ -7,14 +7,16 @@ type Status = "idle" | "submitting" | "success" | "error";
 const initialState = {
 	firstName: "",
 	lastName: "",
-	organization: "",
 	email: "",
-	role: "",
+	subscribe: false,
 	message: "",
-	subscribe: true,
 };
 
-export function ContactForm() {
+type ContactFormProps = {
+	submitLabel?: string;
+};
+
+export function ContactForm({ submitLabel = "Send" }: ContactFormProps) {
 	const [data, setData] = useState(initialState);
 	const [status, setStatus] = useState<Status>("idle");
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -65,14 +67,11 @@ export function ContactForm() {
 
 	return (
 		<form className="contact-form" onSubmit={onSubmit} noValidate>
-			<p className="contact-form__intro">
-				Tell us a bit about you and how we can help:
-			</p>
-
+			<p className="contact-form__group-label">Name</p>
 			<div className="contact-form__row">
 				<div className="contact-form__field">
 					<label htmlFor="firstName">
-						First name <span className="contact-form__hint">(required)</span>
+						First Name <span className="contact-form__hint">(required)</span>
 					</label>
 					<input
 						id="firstName"
@@ -85,7 +84,7 @@ export function ContactForm() {
 				</div>
 				<div className="contact-form__field">
 					<label htmlFor="lastName">
-						Last name <span className="contact-form__hint">(required)</span>
+						Last Name <span className="contact-form__hint">(required)</span>
 					</label>
 					<input
 						id="lastName"
@@ -94,34 +93,6 @@ export function ContactForm() {
 						required
 						value={data.lastName}
 						onChange={update("lastName")}
-					/>
-				</div>
-			</div>
-
-			<div className="contact-form__row">
-				<div className="contact-form__field">
-					<label htmlFor="organization">Organization</label>
-					<input
-						id="organization"
-						name="organization"
-						type="text"
-						value={data.organization}
-						onChange={update("organization")}
-					/>
-				</div>
-				<div className="contact-form__field">
-					<label htmlFor="role">
-						Role / interest{" "}
-						<span className="contact-form__hint">
-							(carrier, broker, sponsor…)
-						</span>
-					</label>
-					<input
-						id="role"
-						name="role"
-						type="text"
-						value={data.role}
-						onChange={update("role")}
 					/>
 				</div>
 			</div>
@@ -140,14 +111,21 @@ export function ContactForm() {
 				/>
 			</div>
 
+			<label className="contact-form__check" htmlFor="subscribe">
+				<input
+					id="subscribe"
+					name="subscribe"
+					type="checkbox"
+					checked={data.subscribe}
+					onChange={update("subscribe")}
+				/>
+				Sign up for news and updates
+			</label>
+
 			<div className="contact-form__field">
 				<label htmlFor="message">
 					Message <span className="contact-form__hint">(required)</span>
 				</label>
-				<p className="contact-form__helper">
-					Tell us what you would like to discuss — partnership, pilot scope,
-					data sharing, or anything else.
-				</p>
 				<textarea
 					id="message"
 					name="message"
@@ -157,17 +135,6 @@ export function ContactForm() {
 					onChange={update("message")}
 				/>
 			</div>
-
-			<label className="contact-form__check" htmlFor="subscribe">
-				<input
-					id="subscribe"
-					name="subscribe"
-					type="checkbox"
-					checked={data.subscribe}
-					onChange={update("subscribe")}
-				/>
-				Sign up for news and updates from EuroDIEM.
-			</label>
 
 			{status === "error" && errorMessage && (
 				<p className="contact-form__error" role="alert">
@@ -180,7 +147,7 @@ export function ContactForm() {
 				className="btn btn--solid"
 				disabled={status === "submitting"}
 			>
-				{status === "submitting" ? "Sending…" : "Send message"}
+				{status === "submitting" ? "Sending…" : submitLabel}
 			</button>
 		</form>
 	);

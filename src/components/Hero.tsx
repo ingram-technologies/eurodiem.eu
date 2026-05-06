@@ -8,7 +8,6 @@ type HeroAction = {
 };
 
 type HeroProps = {
-  eyebrow?: string;
   title: string;
   lead?: string;
   image: string;
@@ -16,14 +15,13 @@ type HeroProps = {
   actions?: HeroAction[];
 };
 
-export function Hero({ eyebrow, title, lead, image, imageAlt, actions }: HeroProps) {
+export function Hero({ title, lead, image, imageAlt, actions }: HeroProps) {
   return (
     <section className="hero">
       <div className="hero__media">
         <Image src={image} alt={imageAlt} fill priority sizes="100vw" />
       </div>
       <div className="hero__inner">
-        {eyebrow && <p className="hero__eyebrow">{eyebrow}</p>}
         <h1 className="hero__title">{title}</h1>
         {lead && <p className="hero__lead">{lead}</p>}
         {actions && actions.length > 0 && (

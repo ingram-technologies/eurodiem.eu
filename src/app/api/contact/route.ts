@@ -9,8 +9,7 @@ export async function POST(request: NextRequest) {
 	try {
 		const body = await request.json();
 		const data = contactFormSchema.parse(body);
-		const { firstName, lastName, organization, email, role, message, subscribe } =
-			data;
+		const { firstName, lastName, email, subscribe, message } = data;
 		const fullName = `${firstName} ${lastName}`.trim();
 
 		const htmlContent = `
@@ -19,8 +18,6 @@ export async function POST(request: NextRequest) {
 				<div style="background-color: #f3f4fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
 					<p style="margin: 10px 0;"><strong>Name:</strong> ${fullName}</p>
 					<p style="margin: 10px 0;"><strong>Email:</strong> ${email}</p>
-					${organization ? `<p style="margin: 10px 0;"><strong>Organization:</strong> ${organization}</p>` : ""}
-					${role ? `<p style="margin: 10px 0;"><strong>Role / interest:</strong> ${role}</p>` : ""}
 					<p style="margin: 10px 0;"><strong>Newsletter:</strong> ${subscribe ? "Yes" : "No"}</p>
 					<div style="margin-top: 20px;">
 						<strong>Message:</strong>
@@ -37,7 +34,7 @@ export async function POST(request: NextRequest) {
 
 Name: ${fullName}
 Email: ${email}
-${organization ? `Organization: ${organization}\n` : ""}${role ? `Role / interest: ${role}\n` : ""}Newsletter: ${subscribe ? "Yes" : "No"}
+Newsletter: ${subscribe ? "Yes" : "No"}
 
 Message:
 ${message}

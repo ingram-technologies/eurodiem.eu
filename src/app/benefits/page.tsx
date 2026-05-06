@@ -5,13 +5,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Benefits",
   description:
-    "EuroDIEM delivers significant advantages to all stakeholders in the insurance ecosystem — carriers, risk transferors, brokers, and the wider European economy.",
+    "EuroDIEM delivers significant advantages to all stakeholders in the insurance ecosystem, from carriers and risk transferors to brokers and the wider European economy.",
 };
 
 const useCases = [
   {
     title: "Natural Catastrophe Coverage",
-    text: "Enabling more affordable and accessible coverage for floods, earthquakes, and wildfires through efficient risk syndication.",
+    text: "Enabling more affordable and accessible coverage for natural disasters like floods, earthquakes, and wildfires through efficient risk syndication.",
     image: "/images/risk-natcat.jpg",
   },
   {
@@ -21,7 +21,7 @@ const useCases = [
   },
   {
     title: "Emerging Technology Risks",
-    text: "Supporting innovation by providing insurance solutions for new technologies — carbon capture, automotive software, and other emerging risks.",
+    text: "Supporting innovation by providing insurance solutions for new technologies like carbon capture, automative softwares, and other emerging risks.",
     image: "/images/risk-emerging.jpg",
   },
 ];
@@ -36,7 +36,7 @@ export default function BenefitsPage() {
           </h1>
           <p className="page-intro__lead">
             EuroDIEM delivers significant advantages to all stakeholders in the
-            insurance ecosystem — from carriers and risk transferors to brokers
+            insurance ecosystem, from carriers and risk transferors to brokers
             and the wider European economy.
           </p>
         </div>
@@ -44,17 +44,19 @@ export default function BenefitsPage() {
 
       <section className="section">
         <div className="container">
+          {/* Carriers */}
           <div className="benefit-block">
             <div>
               <p className="section__eyebrow" style={{ textAlign: "left" }}>
                 For Insurance Carriers
               </p>
               <h2 className="benefit-block__title">
-                Expand capacity, reduce capital requirements
+                Expand Capacity and Reduce Capital Requirements
               </h2>
               <p className="benefit-block__lead">
-                Carriers benefit from enhanced risk diversification, reduced
-                capital requirements, and access to new markets.
+                Insurance carriers benefit from EuroDIEM through enhanced risk
+                diversification, reduced capital requirements, and access to
+                new markets.
               </p>
             </div>
             <ul className="benefit-block__list">
@@ -62,20 +64,21 @@ export default function BenefitsPage() {
               <li>Reduced capital requirements through risk sharing</li>
               <li>Enhanced data insights through the data sharing module</li>
               <li>
-                Opportunity (c. €200 bn premium) to enter new markets and risk
+                Opportunity (ca. €200 bn premium) to enter new markets and risk
                 categories
               </li>
               <li>Improved risk assessment through collective intelligence</li>
             </ul>
           </div>
 
+          {/* Risk Transferors */}
           <div className="benefit-block">
             <div>
               <p className="section__eyebrow" style={{ textAlign: "left" }}>
                 For Risk Transferors
               </p>
               <h2 className="benefit-block__title">
-                Lower premiums, broader coverage
+                Lower Premiums and Broader Coverage
               </h2>
               <p className="benefit-block__lead">
                 SMEs, corporates, and other risk transferors benefit from more
@@ -89,24 +92,26 @@ export default function BenefitsPage() {
               <li>Simplified access to a wider range of insurance providers</li>
               <li>
                 Resulting expected increase in demand leading to a further
-                expected decrease in premium in due time — higher prevention,
-                better data, and lower costs
+                expected decrease in premium in due time: higher prevention,
+                better data with the sharing module and lower costs
               </li>
             </ul>
           </div>
 
+          {/* Brokers */}
           <div className="benefit-block">
             <div>
               <p className="section__eyebrow" style={{ textAlign: "left" }}>
                 For Brokers
               </p>
               <h2 className="benefit-block__title">
-                Enhanced placement capabilities
+                Enhanced Placement Capabilities
               </h2>
               <p className="benefit-block__lead">
-                Brokers play a central and supportive role on the EuroDIEM
-                platform — with a significant development opportunity (c. €200
-                bn premium).
+                Brokers play a central and supportive role in the EuroDIEM
+                platform, benefiting from enhanced capabilities to serve their
+                clients and a significant development opportunity (ca. €200 bn
+                premium):
               </p>
             </div>
             <ul className="benefit-block__list">
@@ -116,17 +121,20 @@ export default function BenefitsPage() {
               <li>Value-added services through data insights and analytics</li>
               <li>
                 Improved client satisfaction through better risk solutions and
-                lower premiums
+                lower premium
               </li>
             </ul>
           </div>
 
+          {/* European Economy */}
           <div className="benefit-block">
             <div>
               <p className="section__eyebrow" style={{ textAlign: "left" }}>
                 For European Economy
               </p>
-              <h2 className="benefit-block__title">Reducing the protection gap</h2>
+              <h2 className="benefit-block__title">
+                Reducing the Protection Gap
+              </h2>
               <p className="benefit-block__lead">
                 EuroDIEM contributes significantly to the European economy by
                 reducing the protection gap and supporting EU priorities.
@@ -146,18 +154,20 @@ export default function BenefitsPage() {
         </div>
       </section>
 
+      {/* Use Cases */}
       <section className="section section--pale">
         <div className="container">
           <p className="section__eyebrow">Use Cases</p>
-          <h2 className="section__title">
-            How EuroDIEM addresses <em>real</em> insurance challenges
-          </h2>
+          <h2 className="section__title">Use Cases</h2>
           <p className="section__lead">
-            Explore how EuroDIEM can address insurance challenges across
-            different sectors.
+            Explore how EuroDIEM can address various insurance challenges
+            across different sectors.
           </p>
 
-          <div className="risk-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
+          <div
+            className="risk-grid"
+            style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}
+          >
             {useCases.map((u) => (
               <article key={u.title} className="risk-card">
                 <div className="risk-card__media">
@@ -179,21 +189,20 @@ export default function BenefitsPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="cta-band">
         <div className="container">
           <h2 className="cta-band__title">
-            Join us in <em>transforming</em> insurance
+            Join Us in <em>Transforming</em> Insurance
           </h2>
           <p className="cta-band__lead">
             EuroDIEM is at a pivotal moment with an incredible alignment of
-            factors making this the perfect time to launch our platform.
+            factors making this the perfect time to launch our platform. Be
+            part of this transformative journey.
           </p>
           <div className="cta-band__actions">
             <Link href="/contact" className="btn btn--solid-light">
-              Contact us
-            </Link>
-            <Link href="/how-it-works" className="btn btn--ghost-light">
-              How it works
+              Contact Us
             </Link>
           </div>
         </div>
