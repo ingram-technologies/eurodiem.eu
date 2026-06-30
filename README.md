@@ -8,8 +8,8 @@ Built with Next.js 15 (App Router) and deployed on Vercel.
 ## Local development
 
 ```bash
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 Then open http://localhost:3000.
