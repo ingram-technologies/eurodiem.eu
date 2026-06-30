@@ -1,14 +1,17 @@
 import { z } from "zod";
 
 export const contactFormSchema = z.object({
-	firstName: z.string().min(1, "First name is required").max(100, "First name is too long"),
-	lastName: z.string().min(1, "Last name is required").max(100, "Last name is too long"),
+	firstName: z
+		.string()
+		.min(1, "First name is required")
+		.max(100, "First name is too long"),
+	lastName: z
+		.string()
+		.min(1, "Last name is required")
+		.max(100, "Last name is too long"),
 	email: z.email("Invalid email address"),
 	subscribe: z.boolean().optional(),
-	message: z
-		.string()
-		.min(1, "Message is required")
-		.max(5000, "Message is too long"),
+	message: z.string().min(1, "Message is required").max(5000, "Message is too long"),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;

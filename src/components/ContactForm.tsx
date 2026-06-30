@@ -52,7 +52,9 @@ export function ContactForm({ submitLabel = "Send" }: ContactFormProps) {
 			setData(initialState);
 		} catch (err) {
 			setStatus("error");
-			setErrorMessage(err instanceof Error ? err.message : "Something went wrong");
+			setErrorMessage(
+				err instanceof Error ? err.message : "Something went wrong",
+			);
 		}
 	};
 
@@ -71,7 +73,8 @@ export function ContactForm({ submitLabel = "Send" }: ContactFormProps) {
 			<div className="contact-form__row">
 				<div className="contact-form__field">
 					<label htmlFor="firstName">
-						First Name <span className="contact-form__hint">(required)</span>
+						First Name{" "}
+						<span className="contact-form__hint">(required)</span>
 					</label>
 					<input
 						id="firstName"

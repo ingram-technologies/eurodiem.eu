@@ -14,8 +14,8 @@ export default function ContactPage() {
 				<div className="contact-page__copy">
 					<h1 className="contact-page__title">Let&rsquo;s work together</h1>
 					<p className="contact-page__subtitle">
-						Interested in working together? Fill out some info and we will be
-						in touch shortly! We can&rsquo;t wait to hear from you!
+						Interested in working together? Fill out some info and we will
+						be in touch shortly! We can&rsquo;t wait to hear from you!
 					</p>
 
 					<ContactForm submitLabel="Submit" />
