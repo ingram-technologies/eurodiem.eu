@@ -1,13 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/how-it-works", label: "How it works" },
   { href: "/benefits", label: "Benefits" },
 ];
 
 export function SiteHeader() {
+  const pathname = usePathname();
+
   return (
     <header className="site-header">
       <div className="site-header__inner">
@@ -22,15 +28,25 @@ export function SiteHeader() {
           />
         </Link>
         <nav className="site-header__nav" aria-label="Primary">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href}>
-              {link.label}
-            </Link>
-          ))}
-          <Link href="/contact" className="site-header__cta">
-            Contact
-          </Link>
+          {navLinks.map((link) => {
+            const isActive =
+              link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={isActive ? "site-header__link--active" : undefined}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
+        <Link href="/contact" className="site-header__cta">
+          Contact
+        </Link>
       </div>
     </header>
   );
