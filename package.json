@@ -13,6 +13,7 @@
 		"prepare": "git config core.hooksPath .githooks || true"
 	},
 	"dependencies": {
+		"@ingram-tech/nk-seo": "0.3.0",
 		"next": "^16.2.9",
 		"react": "^19.2.7",
 		"react-dom": "^19.2.7",

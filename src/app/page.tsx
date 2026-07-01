@@ -1,6 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
+import { organization, website } from "@ingram-tech/nk-seo";
+import { JsonLd } from "@ingram-tech/nk-seo/components";
 import { ContactForm } from "@/components/ContactForm";
+
+const baseUrl = "https://www.eurodiem.eu";
+
+const orgInput = {
+	name: "EuroDIEM",
+	url: baseUrl,
+	logo: `${baseUrl}/images/logo.png`,
+	description:
+		"EuroDIEM is developing a European platform to industrialize syndication of large and unconventional insurance risks, decreasing the protection gap and doubling the size of the insurance market, combined with a European PPP.",
+};
+
+const structuredData = [
+	organization(orgInput),
+	website({ name: "EuroDIEM", url: baseUrl, publisher: orgInput }),
+];
 
 const heroImages = [
 	{ src: "/images/risk-wildfire.jpg", alt: "" },
@@ -128,6 +145,7 @@ function MiniRiskNode({
 export default function HomePage() {
 	return (
 		<>
+			<JsonLd data={structuredData} />
 			<section className="home-hero" id="home">
 				<div className="home-container home-hero__inner">
 					<div className="home-hero__copy">
