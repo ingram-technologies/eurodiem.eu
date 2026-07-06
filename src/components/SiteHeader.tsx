@@ -9,6 +9,7 @@ const navLinks = [
 	{ href: "/about", label: "About" },
 	{ href: "/how-it-works", label: "How it works" },
 	{ href: "/benefits", label: "Benefits" },
+	{ href: "/news", label: "News" },
 ];
 
 export function SiteHeader() {

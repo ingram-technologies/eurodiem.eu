@@ -26,6 +26,7 @@ export function SiteFooter() {
 					<Link href="/about">About</Link>
 					<Link href="/how-it-works">How it works</Link>
 					<Link href="/benefits">Benefits</Link>
+					<Link href="/news">News</Link>
 					<Link href="/contact">Contact</Link>
 				</nav>
 
