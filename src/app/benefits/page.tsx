@@ -8,222 +8,165 @@ export const metadata: Metadata = {
 		"EuroDIEM delivers significant advantages to all stakeholders in the insurance ecosystem, from carriers and risk transferors to brokers and the wider European economy.",
 };
 
-const useCases = [
+const benefitRows = [
 	{
-		title: "Natural Catastrophe Coverage",
-		text: "Enabling more affordable and accessible coverage for natural disasters like floods, earthquakes, and wildfires through efficient risk syndication.",
-		image: "/images/risk-natcat.jpg",
+		tone: "deep",
+		reverse: false,
+		title: "Expand Capacity and Reduce Capital Requirements",
+		image: "/images/benefits/1.webp",
+		alt: "EuroDIEM syndication coverage diagram showing layered capacity",
+		lead: "Insurance carriers benefit from EuroDIEM through enhanced risk diversification, reduced capital requirements, and access to new markets.",
+		items: [
+			"Access to a wider range of risks for portfolio diversification",
+			"Reduced capital requirements through risk sharing",
+			"Enhanced data insights through the data sharing module",
+			"Opportunity (ca. €200 bn premium) to enter new markets and risk categories",
+			"Improved risk assessment through collective intelligence",
+		],
 	},
+	{
+		tone: "plain",
+		reverse: true,
+		title: "Lower Premiums and Broader Coverage",
+		image: "/images/benefits/2.webp",
+		alt: "Planet Earth seen from space",
+		lead: "SMEs, corporates, and other risk transferors benefit from more affordable insurance and access to coverage for previously uninsurable risks.",
+		items: [
+			"Lower premiums primarily due to reduced cost of capital",
+			"Increased access to coverage for previously uninsurable risks",
+			"Simplified access to a wider range of insurance providers",
+			"Resulting expected increase in demand leading to a further expected decrease in premium in due time: higher prevention, better data with the sharing module and lower costs",
+		],
+	},
+	{
+		tone: "deep",
+		reverse: false,
+		title: "Enhanced Placement Capabilities",
+		image: "/images/benefits/3.webp",
+		alt: "Laptop and phone showing financial trading dashboards",
+		lead: "Brokers play a central and supportive role in the EuroDIEM platform, benefiting from enhanced capabilities to serve their clients and a significant development opportunity (ca. €200 bn premium):",
+		items: [
+			"Enhanced ability to place complex and unconventional risks",
+			"Access to a wider range of carriers and capacity",
+			"Streamlined processes through technology integration",
+			"Value-added services through data insights and analytics",
+			"Improved client satisfaction through better risk solutions and lower premium",
+		],
+	},
+	{
+		tone: "plain",
+		reverse: true,
+		title: "Reducing the Protection Gap",
+		image: "/images/benefits/4.webp",
+		alt: "Golden padlock on a weathered blue surface",
+		lead: "EuroDIEM contributes significantly to the European economy by reducing the protection gap and supporting EU priorities.",
+		items: [
+			"Reduced protection gap, estimated at €200 billion annually",
+			"Decreased national and supranational debt burden",
+			"Support for large industrial innovative projects",
+			"Transformation of savings into investments in European priorities",
+			"Enhanced European resilience to catastrophic events",
+		],
+	},
+];
+
+const useCases = [
 	{
 		title: "Cyber Risk Protection",
 		text: "Addressing the growing cyber threat landscape by providing more capacity and expertise for this rapidly evolving risk category.",
-		image: "/images/risk-cyber.jpg",
+	},
+	{
+		title: "Natural Catastrophe Coverage",
+		text: "Enabling more affordable and accessible coverage for natural disasters like floods, earthquakes, and wildfires through efficient risk syndication.",
 	},
 	{
 		title: "Emerging Technology Risks",
 		text: "Supporting innovation by providing insurance solutions for new technologies like carbon capture, automative softwares, and other emerging risks.",
-		image: "/images/risk-emerging.jpg",
 	},
 ];
 
 export default function BenefitsPage() {
 	return (
 		<>
+			{/* Hero */}
 			<section className="page-intro">
-				<div className="page-intro__inner">
-					<h1 className="page-intro__title">
-						Benefits of <em>EuroDIEM</em>
-					</h1>
-					<p className="page-intro__lead">
-						EuroDIEM delivers significant advantages to all stakeholders in
-						the insurance ecosystem, from carriers and risk transferors to
-						brokers and the wider European economy.
-					</p>
+				<div className="page-intro__inner ben-hero">
+					<div className="ben-hero__copy">
+						<p className="about-hero__eyebrow">Benefits of</p>
+						<h1 className="page-intro__title">EuroDIEM</h1>
+						<p className="page-intro__lead">
+							EuroDIEM delivers significant advantages to all stakeholders
+							in the insurance ecosystem, from carriers and risk
+							transferors to brokers and the wider European economy.
+						</p>
+					</div>
+					<figure className="ben-hero__media">
+						<Image
+							src="/images/benefits/hero.webp"
+							alt="Neon sign reading “this must be the place”"
+							width={1000}
+							height={667}
+							priority
+							sizes="(min-width: 900px) 44vw, 90vw"
+						/>
+					</figure>
 				</div>
 			</section>
 
-			<section className="section">
-				<div className="container">
-					{/* Carriers */}
-					<div className="benefit-block">
-						<div>
-							<p
-								className="section__eyebrow"
-								style={{ textAlign: "left" }}
-							>
-								For Insurance Carriers
-							</p>
-							<h2 className="benefit-block__title">
-								Expand Capacity and Reduce Capital Requirements
-							</h2>
-							<p className="benefit-block__lead">
-								Insurance carriers benefit from EuroDIEM through
-								enhanced risk diversification, reduced capital
-								requirements, and access to new markets.
-							</p>
+			{/* Benefit rows */}
+			{benefitRows.map((row) => (
+				<section
+					key={row.title}
+					className={`section${row.tone === "deep" ? " section--deep" : ""}`}
+				>
+					<div className="container">
+						<div
+							className={`hiw-row${row.reverse ? " hiw-row--reverse" : ""}`}
+						>
+							<div className="hiw-row__text">
+								<h2 className="ben-title">{row.title}</h2>
+								<p className="ben-lead">{row.lead}</p>
+								<ul className="ben-check">
+									{row.items.map((item) => (
+										<li key={item}>{item}</li>
+									))}
+								</ul>
+							</div>
+							<figure className="hiw-row__media">
+								<Image
+									src={row.image}
+									alt={row.alt}
+									width={1000}
+									height={640}
+									sizes="(min-width: 860px) 46vw, 90vw"
+								/>
+							</figure>
 						</div>
-						<ul className="benefit-block__list">
-							<li>
-								Access to a wider range of risks for portfolio
-								diversification
-							</li>
-							<li>Reduced capital requirements through risk sharing</li>
-							<li>
-								Enhanced data insights through the data sharing module
-							</li>
-							<li>
-								Opportunity (ca. €200 bn premium) to enter new markets
-								and risk categories
-							</li>
-							<li>
-								Improved risk assessment through collective intelligence
-							</li>
-						</ul>
 					</div>
-
-					{/* Risk Transferors */}
-					<div className="benefit-block">
-						<div>
-							<p
-								className="section__eyebrow"
-								style={{ textAlign: "left" }}
-							>
-								For Risk Transferors
-							</p>
-							<h2 className="benefit-block__title">
-								Lower Premiums and Broader Coverage
-							</h2>
-							<p className="benefit-block__lead">
-								SMEs, corporates, and other risk transferors benefit
-								from more affordable insurance and access to coverage
-								for previously uninsurable risks.
-							</p>
-						</div>
-						<ul className="benefit-block__list">
-							<li>
-								Lower premiums primarily due to reduced cost of capital
-							</li>
-							<li>
-								Increased access to coverage for previously uninsurable
-								risks
-							</li>
-							<li>
-								Simplified access to a wider range of insurance
-								providers
-							</li>
-							<li>
-								Resulting expected increase in demand leading to a
-								further expected decrease in premium in due time: higher
-								prevention, better data with the sharing module and
-								lower costs
-							</li>
-						</ul>
-					</div>
-
-					{/* Brokers */}
-					<div className="benefit-block">
-						<div>
-							<p
-								className="section__eyebrow"
-								style={{ textAlign: "left" }}
-							>
-								For Brokers
-							</p>
-							<h2 className="benefit-block__title">
-								Enhanced Placement Capabilities
-							</h2>
-							<p className="benefit-block__lead">
-								Brokers play a central and supportive role in the
-								EuroDIEM platform, benefiting from enhanced capabilities
-								to serve their clients and a significant development
-								opportunity (ca. €200 bn premium):
-							</p>
-						</div>
-						<ul className="benefit-block__list">
-							<li>
-								Enhanced ability to place complex and unconventional
-								risks
-							</li>
-							<li>Access to a wider range of carriers and capacity</li>
-							<li>
-								Streamlined processes through technology integration
-							</li>
-							<li>
-								Value-added services through data insights and analytics
-							</li>
-							<li>
-								Improved client satisfaction through better risk
-								solutions and lower premium
-							</li>
-						</ul>
-					</div>
-
-					{/* European Economy */}
-					<div className="benefit-block">
-						<div>
-							<p
-								className="section__eyebrow"
-								style={{ textAlign: "left" }}
-							>
-								For European Economy
-							</p>
-							<h2 className="benefit-block__title">
-								Reducing the Protection Gap
-							</h2>
-							<p className="benefit-block__lead">
-								EuroDIEM contributes significantly to the European
-								economy by reducing the protection gap and supporting EU
-								priorities.
-							</p>
-						</div>
-						<ul className="benefit-block__list">
-							<li>
-								Reduced protection gap, estimated at €200 billion
-								annually
-							</li>
-							<li>Decreased national and supranational debt burden</li>
-							<li>Support for large industrial innovative projects</li>
-							<li>
-								Transformation of savings into investments in European
-								priorities
-							</li>
-							<li>Enhanced European resilience to catastrophic events</li>
-						</ul>
-					</div>
-				</div>
-			</section>
+				</section>
+			))}
 
 			{/* Use Cases */}
-			<section className="section section--pale">
+			<section className="section">
 				<div className="container">
-					<p className="section__eyebrow">Use Cases</p>
-					<h2 className="section__title">Use Cases</h2>
-					<p className="section__lead">
+					<h2 className="hiw-title">Use Cases</h2>
+					<p className="hiw-sub">
 						Explore how EuroDIEM can address various insurance challenges
 						across different sectors.
 					</p>
 
-					<div
-						className="risk-grid"
-						style={{
-							gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-						}}
-					>
-						{useCases.map((u) => (
-							<article key={u.title} className="risk-card">
-								<div className="risk-card__media">
-									<Image
-										src={u.image}
-										alt=""
-										width={640}
-										height={427}
-										sizes="(min-width: 1024px) 33vw, (min-width: 720px) 50vw, 100vw"
-									/>
-								</div>
-								<div className="risk-card__body">
-									<h3 className="risk-card__title">{u.title}</h3>
-									<p className="risk-card__text">{u.text}</p>
-								</div>
+					<div className="about-solution-grid">
+						{useCases.map((useCase) => (
+							<article
+								key={useCase.title}
+								className="about-solution-card"
+							>
+								<h3 className="about-solution-card__title">
+									{useCase.title}
+								</h3>
+								<p className="about-solution-card__text">
+									{useCase.text}
+								</p>
 							</article>
 						))}
 					</div>
@@ -231,10 +174,11 @@ export default function BenefitsPage() {
 			</section>
 
 			{/* CTA */}
-			<section className="cta-band">
+			<section className="cta-band cta-band--brand">
 				<div className="container">
 					<h2 className="cta-band__title">
-						Join Us in <em>Transforming</em> Insurance
+						Join Us in <span className="about-underline">Transforming</span>{" "}
+						Insurance
 					</h2>
 					<p className="cta-band__lead">
 						EuroDIEM is at a pivotal moment with an incredible alignment of
@@ -242,7 +186,7 @@ export default function BenefitsPage() {
 						part of this transformative journey.
 					</p>
 					<div className="cta-band__actions">
-						<Link href="/contact" className="btn btn--solid-light">
+						<Link href="/contact" className="btn btn--yellow">
 							Contact Us
 						</Link>
 					</div>
