@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
 	title: "How it works",
 	description:
 		"The EuroDIEM platform connects risk transferors with insurance carriers (B2B) or investors (B2B+) through an innovative pre-matchmaking process, with brokers playing a central and supportive role.",
-};
+	path: "/how-it-works",
+});
 
 const tiers = [
 	{

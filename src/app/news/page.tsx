@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
 import { NewsArticle, type ArticleVersion } from "@/components/NewsArticle";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
 	title: "News",
 	description:
 		"EuroDIEM in the media, on stage, and on the policymaking and regulatory agenda — press interviews, speaking engagements, and European policy milestones.",
-};
+	path: "/news",
+});
 
 const assuraliaVersions: ArticleVersion[] = [
 	{
